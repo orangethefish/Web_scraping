@@ -1,13 +1,19 @@
 import csv
-def export_csv(names,sold,prices,reviews,gifts,categories,csv_name):
+
+# Function to export data to a CSV file
+def export_csv(names, sold, prices, reviews, gifts, categories, csv_name):
     data = []
+    
+    # Iterate through the lists and gather data into a list of dictionaries
     for i in range(len(names)):
-        name_text = names[i] 
-        price_text = prices[i] 
-        sold_text = sold[i] 
-        reviews_text = reviews[i] 
-        gift_text = gifts[i] 
-        categories_text = categories[i] 
+        name_text = names[i]
+        price_text = prices[i]
+        sold_text = sold[i]
+        reviews_text = reviews[i]
+        gift_text = gifts[i]
+        categories_text = categories[i]
+        
+        # Create a dictionary for each item
         data.append({"Name": name_text, "Price": price_text, "Sold": sold_text, "Review": reviews_text, "Gift": gift_text, "Category": categories_text})
 
     # Write the data to a CSV file
@@ -21,4 +27,3 @@ def export_csv(names,sold,prices,reviews,gifts,categories,csv_name):
         # Write the data rows
         for item in data:
             writer.writerow(item)
-
